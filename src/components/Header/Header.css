@@ -1,0 +1,17 @@
+.navbar{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-left: 25px;
+   margin-right: 25px;
+}
+.navbar ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;    
+}
+.button{
+    border: 0px;
+    font-size: 20px;
+}

@@ -1,0 +1,12 @@
+.signup-form{
+    border: 1px solid tomato;
+    width: 50%;
+    height: 500px;
+}
+.input{
+    border: 0;
+    padding: 5px;
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+    width: 500px;
+}
