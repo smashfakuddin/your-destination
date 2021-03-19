@@ -1,7 +1,9 @@
 .signup-form{
     border: 1px solid tomato;
     width: 50%;
-    height: 500px;
+    margin-top: 50px;
+    height: 80vh;
+    margin-left: 20%;
 }
 .input{
     border: 0;
