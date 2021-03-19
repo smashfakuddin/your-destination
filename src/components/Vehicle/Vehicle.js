@@ -5,13 +5,13 @@ const Vehicle = (props) => {
 
     const { image, name } = props.vehicle;
     const history = useHistory();
-    const vehicle =(name,image) => {
+    const vehicle =(name) => {
         const url = `vehicle/${name}`;
         history.push(url);
     }
     return (
 
-        <div className='cart' onClick={() => vehicle(name,image)} >
+        <div className='cart' onClick={() => vehicle(name)} >
             <img src={image} width='125px' alt="" />
             <h3>{name}</h3>
         </div>

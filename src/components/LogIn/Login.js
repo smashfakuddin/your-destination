@@ -23,6 +23,8 @@ const Login = () => {
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
 
+   
+
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
     }
@@ -57,6 +59,7 @@ const Login = () => {
             setUser(newUserInfo);
         }
     }
+    
     const handleSubmit = (e) => {
         if (newUser && user.email && user.password) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
