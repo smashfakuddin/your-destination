@@ -1,9 +1,9 @@
 import React from 'react';
 import data from '../../fakeData/fakedata.json';
-import './Body.css';
+import './Home.css';
 
 
-const Body = () => {
+const Home = () => {
     return (
         <div className='cart-container'>
             {
@@ -17,4 +17,4 @@ const Body = () => {
     );
 };
 
-export default Body;
+export default Home;
