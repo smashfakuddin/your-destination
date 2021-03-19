@@ -4,6 +4,7 @@ import "firebase/auth";
 import './Login.css';
 import firebaseConfig from './firebase.config';
 import { UserContext } from '../../App';
+import { useHistory, useLocation } from 'react-router';
 
 
 const Login = () => {
@@ -18,6 +19,10 @@ const Login = () => {
         success: ''
     });
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
     }
@@ -32,7 +37,7 @@ const Login = () => {
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
-               
+
             });
     }
     const handleBlur = (event) => {
@@ -69,23 +74,23 @@ const Login = () => {
                     setUser(newUserInfo);
                 });
         }
-        if(!newUser && user.email && user.password){
+        if (!newUser && user.email && user.password) {
             firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-            .then(res => {
-                const newUserInfo = { ...user };
-                newUserInfo.error = '';
-                newUserInfo.success = true;
-                setUser(newUserInfo);
-                setLoggedInUser(newUserInfo);
-                // history.replace(from);
-                console.log("sign in user info", res.user);
-            })
-            .catch((error) => {
-                const newUserInfo = { ...user };
-                newUserInfo.error = error.message;
-                newUserInfo.success = false;
-                setUser(newUserInfo);
-            });
+                .then(res => {
+                    const newUserInfo = { ...user };
+                    newUserInfo.error = '';
+                    newUserInfo.success = true;
+                    setUser(newUserInfo);
+                    setLoggedInUser(newUserInfo);
+                    history.replace(from);
+                    console.log("sign in user info", res.user);
+                })
+                .catch((error) => {
+                    const newUserInfo = { ...user };
+                    newUserInfo.error = error.message;
+                    newUserInfo.success = false;
+                    setUser(newUserInfo);
+                });
         }
         e.preventDefault();
     }
@@ -103,16 +108,16 @@ const Login = () => {
     }
     return (
         <div className='signup-form'>
-            <h3>Create an account</h3>
+            <h3>{newUser ? 'Create an account' : 'Log In'}</h3>
             <form onSubmit={handleSubmit}>
                 {newUser && <input className='input' onBlur={handleBlur} type="text" name="name" placeholder='Name' required />}  <br />
                 <input className='input' onBlur={handleBlur} type="email" name="email" placeholder='Enter Your E-mail' required /> <br />
                 <input className='input' onBlur={handleBlur} type="password" name="password" id="" placeholder='Password' placeholder='Password' required /><br />
                 {newUser && <input className='input' onBlur={handleBlur} type="password" name="confirm-password" id="" placeholder='Confirm Password' required />}  <br />
-                <input type="submit" value={newUser?"Create an account":'Log in'} />
+                <input type="submit" value={newUser ? "Create an account" : 'Log in'} />
                 <p>Don't have an account? <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" /><label htmlFor='newUser'>Sign Up</label></p>
                 <p style={{ color: 'red' }}>{user.error}</p>
-                {user.success && <p style={{ color: 'green' }}>user {newUser?'created':'Logged In'} successfully</p>}
+                {user.success && <p style={{ color: 'green' }}>user {newUser ? 'created' : 'Logged In'} successfully</p>}
             </form>
             <p>--------- or ----------</p>
             <button onClick={handleGoogleSignIn}>Continue With Google</button>

@@ -1,9 +1,11 @@
 .signup-form{
-    border: 1px solid tomato;
     width: 50%;
     margin-top: 50px;
-    height: 80vh;
+    padding-top: 10px;
+    height: 65vh;
     margin-left: 20%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .input{
     border: 0;

@@ -11,6 +11,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext([]);
 
@@ -19,18 +20,17 @@ function App() {
   return (
     <div className='App'>
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-
         <Router>
           <Header></Header>
           <Switch>
-            <Route path="/body">
+            <Route path="/home">
               <Home></Home>
             </Route>
+            <PrivateRoute path='/vehicle/:name'>
+              <Destination></Destination>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
-            </Route>
-            <Route path="/destination">
-              <Destination></Destination>
             </Route>
             <Route path="/">
               <Home></Home>
