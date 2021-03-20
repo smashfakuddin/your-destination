@@ -11,7 +11,7 @@ const Vehicle = (props) => {
     }
     return (
 
-        <div className='cart' onClick={() => vehicle(name)} >
+        <div className='cart col-sm mb-5' onClick={() => vehicle(name)} >
             <img src={image} width='125px' alt="" />
             <h3>{name}</h3>
         </div>

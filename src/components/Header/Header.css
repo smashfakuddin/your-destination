@@ -19,3 +19,15 @@
     background-color: tomato;
     cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+    .navbar {
+      flex-direction: column;
+    }
+    .navbar ul li{
+        margin-left: 15px;
+    }
+    .navbar ul{
+        width: 100%;
+    }
+  }

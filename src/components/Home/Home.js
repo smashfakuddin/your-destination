@@ -8,9 +8,11 @@ const Home = () => {
     
     return (
         <div className='cart-container'>
+            <div className='row'>
             {
                 data.map(vehicle => <Vehicle vehicle={vehicle}></Vehicle>)
             }
+            </div>
         </div>
     );
 };

@@ -26,7 +26,7 @@ const Destination = () => {
     const [show, setShow] = useState(true);
     const onClick = () => setShow(false);
     return (
-        <div className='destination'>
+        <div className='destination'>{show ?
             <div className='destination-form' action="">
                 <label htmlFor="from">Pick From</label>
                 <input className='destination-input' type="text" name='from' /> <br />
@@ -34,25 +34,31 @@ const Destination = () => {
                 <input className='destination-input' type="text" name="to" id="" />
                 <br />
                 <button className='main-button' onClick={onClick}>Search</button>
-            </div>
+            </div> : null}
+            { show ? null :
+                <div className='searched-cart'>
+                    <h2>Mirpur 1</h2>
+                    <h2>Dhanmondi</h2>
+                </div>
+            }
             {
                 show ? null :
                     <div>
                         <div className='price-cart'>
                             <img width='75' src={image} alt="" />
-                            <h1>{name}</h1>
+                            <h3>{name}</h3>
                             <p><img width='20' src={peopleIcon} alt="" /> 4</p>
                             <h4>$65</h4>
                         </div>
                         <div className='price-cart'>
                             <img width='75' src={image} alt="" />
-                            <h1>{name}</h1>
+                            <h3>{name}</h3>
                             <p><img width='20' src={peopleIcon} alt="" /> 4</p>
                             <h4>$65</h4>
                         </div>
                         <div className='price-cart'>
                             <img width='75' src={image} alt="" />
-                            <h1>{name}</h1>
+                            <h3>{name}</h3>
                             <p><img width='20' src={peopleIcon} alt="" /> 4</p>
                             <h4>$65</h4>
                         </div>
