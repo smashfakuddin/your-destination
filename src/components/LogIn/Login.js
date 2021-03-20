@@ -117,13 +117,13 @@ const Login = () => {
                 <input className='input' onBlur={handleBlur} type="email" name="email" placeholder='Enter Your E-mail' required /> <br />
                 <input className='input' onBlur={handleBlur} type="password" name="password" id="" placeholder='Password' placeholder='Password' required /><br />
                 {newUser && <input className='input' onBlur={handleBlur} type="password" name="confirm-password" id="" placeholder='Confirm Password' required />}  <br />
-                <input type="submit" value={newUser ? "Create an account" : 'Log in'} />
+                <input className='main-button'  type="submit" value={newUser ? "Create an account" : 'Log in'} />
                 <p>Don't have an account? <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" /><label htmlFor='newUser'>Sign Up</label></p>
                 <p style={{ color: 'red' }}>{user.error}</p>
                 {user.success && <p style={{ color: 'green' }}>user {newUser ? 'created' : 'Logged In'} successfully</p>}
             </form>
             <p>--------- or ----------</p>
-            <button onClick={handleGoogleSignIn}>Continue With Google</button>
+            <button className='main-button' onClick={handleGoogleSignIn}>Continue With Google</button>
 
         </div>
     );

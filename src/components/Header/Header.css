@@ -11,7 +11,11 @@
     justify-content: space-between;
     width: 40%;   
 }
-.button{
+.login-button{
     border: 0px;
     font-size: 20px;
+    width: 120px;
+    padding: 8px;
+    background-color: tomato;
+    cursor: pointer;
 }
